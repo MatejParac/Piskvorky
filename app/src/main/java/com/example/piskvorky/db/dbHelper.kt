@@ -12,6 +12,15 @@ val COL_WIN = "win"
 val COL_DRAW = "draw"
 val COL_ID = "id"
 
+
+/**
+ * Class for work with database
+ *
+ * @constructor
+ * Creates a DbHelper
+ *
+ * @param context
+ */
 class dbHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,null,1){
     override fun onCreate(db: SQLiteDatabase?) {
         val createTable = "CREATE TABLE " + TABLE_NAME + "(" +
@@ -27,7 +36,11 @@ class dbHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,null,1
 
     }
 
-
+    /**
+     * Inserts record to database
+     *
+     * @param record Inserted record
+      */
     fun insertData(record:dbRecord){
         val db = this.writableDatabase
         var cv = ContentValues()
@@ -38,6 +51,11 @@ class dbHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,null,1
         var result = db.insert(TABLE_NAME,null,cv)
     }
 
+    /**
+     * Gets records from database
+     *
+     * @return List of records
+     */
     fun readData():MutableList<dbRecord>{
         var list:MutableList<dbRecord> = ArrayList()
 
@@ -62,13 +80,20 @@ class dbHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,null,1
         return list
     }
 
+
     fun deleteData(){
         val db = this.writableDatabase
 
         db.delete(TABLE_NAME, null,null)
         db.close()
     }
-    
+
+    /**
+     * Update the specific record of database
+     *
+     * @param id Which mode is supposed to be updated
+     * @param col Which column is supposed to by updated
+     */
     fun updateData(id:Int,col:String){
         val db = this.writableDatabase
         var query = "Select * from $TABLE_NAME where $COL_ID==$id"
@@ -86,6 +111,10 @@ class dbHelper(context: Context): SQLiteOpenHelper(context, DATABASE_NAME,null,1
         }
     }
 
+    /**
+     * Sets records to 0 value
+     *
+     */
     fun resetData(){
         val db = this.writableDatabase
         var query = "Select * from $TABLE_NAME"

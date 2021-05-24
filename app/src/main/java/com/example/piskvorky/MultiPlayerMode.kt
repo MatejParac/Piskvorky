@@ -7,6 +7,10 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
+/**
+ * Asks for names of players and starts the game
+ *
+ */
 class MultiPlayerMode :AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,5 +1,9 @@
 package com.example.piskvorky.db
 
+/**
+ * Represents a record of database
+ *
+ */
 class dbRecord {
     var id:Int = 0
     var lose:Int = 0

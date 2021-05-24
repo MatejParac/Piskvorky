@@ -61,7 +61,10 @@ class GameMultiPlayer : AppCompatActivity(){
             startActivity(intent)
         }
     }
-
+    /**
+     * Creates a board of squares and sets onClickListener for every square
+     *
+     */
     private fun createBoard(x:Int,y:Int): ImageButton {
         val btn: ImageButton =
             findViewById(resources.getIdentifier("btn$x$y", "id", packageName))
@@ -71,6 +74,11 @@ class GameMultiPlayer : AppCompatActivity(){
         return btn
     }
 
+    /**
+     * sets clicked square to specific symbol(x,o) and check if it was a winning move
+     *
+     * @param square Clicked button
+     */
     private fun squareClick(square:ImageButton) {
         if(square.drawable != null) return
         if(turn){
@@ -91,6 +99,11 @@ class GameMultiPlayer : AppCompatActivity(){
         }
     }
 
+    /**
+     * Check if player wins
+     *
+     * @param player Index of player
+     */
     private fun win(player: Int) {
         if(player == 1){
             player1Points++
@@ -103,6 +116,10 @@ class GameMultiPlayer : AppCompatActivity(){
         updateScore()
     }
 
+    /**
+     * Check if it is draw
+     *
+     */
     private fun draw(){
         draws++
         Toast.makeText(
@@ -115,44 +132,55 @@ class GameMultiPlayer : AppCompatActivity(){
         updateScore()
     }
 
+    /**
+     * Check if it was a winning move
+     *
+     * @return True if game has winner
+     */
     private fun isWinningMove(): Boolean {
-        val fields = Array(3){x->
+        val squares = Array(3){x->
             Array(3){y->
                 getSquare(board[x][y])
             }
         }
 
         for(i in 0..2){
-            if((fields[i][0] == fields[i][1])&&
-                (fields[i][0] == fields[i][2])&&
-                (fields[i][0] != null)
+            if((squares[i][0] == squares[i][1])&&
+                (squares[i][0] == squares[i][2])&&
+                (squares[i][0] != null)
             )return true
         }
 
         for(i in 0..2){
             if(
-                (fields[0][i] == fields[1][i])&&
-                (fields[0][i] == fields[2][i])&&
-                (fields[0][i] != null)
+                (squares[0][i] == squares[1][i])&&
+                (squares[0][i] == squares[2][i])&&
+                (squares[0][i] != null)
             )return true
         }
 
         if(
-            (fields[0][0] == fields[1][1])&&
-            (fields[0][0] == fields[2][2])&&
-            (fields[0][0] != null)
+            (squares[0][0] == squares[1][1])&&
+            (squares[0][0] == squares[2][2])&&
+            (squares[0][0] != null)
         ) return true
 
         if(
-            (fields[0][2] == fields[1][1])&&
-            (fields[0][2] == fields[2][0])&&
-            (fields[0][2] != null)
+            (squares[0][2] == squares[1][1])&&
+            (squares[0][2] == squares[2][0])&&
+            (squares[0][2] != null)
         ) return true
 
         return false
 
     }
 
+    /**
+     * Gets symbol of the checked square
+     *
+     * @param imageButton
+     * @return char of the checkedSquare
+     */
     private fun getSquare(imageButton: ImageButton):Char? {
         val isChecked: Drawable? = imageButton.drawable
         val x: Drawable? = ResourcesCompat.getDrawable(resources,R.drawable.x,null)
@@ -164,6 +192,10 @@ class GameMultiPlayer : AppCompatActivity(){
         }
     }
 
+    /**
+     * Clear the board after restart the game
+     *
+     */
     private fun clearBoard() {
         for (x in 0..2){
             for(y in 0..2){
@@ -177,12 +209,21 @@ class GameMultiPlayer : AppCompatActivity(){
         setSquares(true)
     }
 
+    /**
+     * Update score board
+     *
+     */
     private fun updateScore() {
         player1ScoreTextView.text = "$player1Points"
         player2ScoreTextView.text = " $player2Points"
         drawScoreTextView.text = "$draws"
     }
 
+    /**
+     * sets squares to ether enabled or disabled in order to prevent clicking to square, or in case of enabled to reset board
+     *
+     * @param enabled True if reset game or false to prevent clicking
+     */
     private fun setSquares(enabled:Boolean){
         for (x in 0..2){
             for(y in 0..2){

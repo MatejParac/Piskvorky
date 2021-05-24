@@ -3,6 +3,11 @@ package com.example.piskvorky.Game
 import android.media.Image
 import java.util.*
 
+/**
+ * Represent a 3x3 board
+ *
+ */
+
 class GameBoard {
     val board = Array(3) { arrayOfNulls<String>(3) }
     var computersMove: Square? = null
@@ -25,7 +30,12 @@ class GameBoard {
         return squares
     }
 
-
+    /**
+     * Check if player's move is winning move
+     *
+     * @param player
+     * @return True if player won
+     */
     fun isWinningMove(player: String):Boolean{
         for(i in 0..2){
             if((board[i][0] == board[i][1])&&
@@ -57,6 +67,10 @@ class GameBoard {
         return false
     }
 
+    /**
+     * AI of easy mode
+     *
+     */
     fun easyModePlay(){
         if (availableSquares.isNotEmpty()) {
             val r = Random()
@@ -66,7 +80,10 @@ class GameBoard {
         }
     }
 
-
+    /**
+     * AI of impossible mode
+     *
+     */
     fun impassibleModePlay(depth: Int, player: String): Int {
         if (isWinningMove(PC)) return +1
         if (isWinningMove(PLAYER)) return -1
@@ -112,6 +129,12 @@ class GameBoard {
         return if (player == PC) max else min
     }
 
+    /**
+     * sets player to square
+     *
+     * @param square Clicked square
+     * @param player Player who clicked
+     */
     fun move(square: Square, player: String) {
         board[square.x][square.y] = player
     }

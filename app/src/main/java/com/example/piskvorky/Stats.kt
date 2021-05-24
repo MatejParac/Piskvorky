@@ -10,15 +10,15 @@ import com.example.piskvorky.db.dbHelper
 
 class Stats :AppCompatActivity(){
 
-    lateinit var easyWin: TextView
-    lateinit var easyLose: TextView
-    lateinit var easyDraw: TextView
+    private lateinit var easyWin: TextView
+    private lateinit var easyLose: TextView
+    private lateinit var easyDraw: TextView
 
-    lateinit var impossibleWin: TextView
-    lateinit var impossibleLose: TextView
-    lateinit var impossibleDraw: TextView
-    val context = this
-    var db = dbHelper(context)
+    private lateinit var impossibleWin: TextView
+    private lateinit var impossibleLose: TextView
+    private lateinit var impossibleDraw: TextView
+    private val context = this
+    private var db = dbHelper(context)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,7 @@ class Stats :AppCompatActivity(){
 
         getData()
 
-        var resetStats = findViewById<Button>(R.id.resetStatsButton)
+        val resetStats = findViewById<Button>(R.id.resetStatsButton)
 
         resetStats.setOnClickListener{
             db.resetData()
@@ -41,7 +41,11 @@ class Stats :AppCompatActivity(){
         }
     }
 
-    fun getData(){
+    /**
+     * Write data from database to text views
+     *
+     */
+    private fun getData(){
         var data = db.readData()
 
         for(i in 0..(data.size-1)){
