@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Piskvorky</string>
+    <string name="app_name">Piškvorky</string>
+    <string name="main_name">Piškvorky</string>
+    <string name="SinglePlayerButton">VY vs. PC</string>
+    <string name="MultiPlayerButton">2 hráči</string>
+    <string name="startGameSinglePlayer">Začať hru</string>
+    <string name="SinglePlayerTextView">Prosím zadajte svoje mená</string>
+    <string name="Player1Name">Hráč 1</string>
+    <string name="Player2Name">Hráč 2</string>
+    <string name="resetGameButton">Reštartovať hru</string>
+    <string name="DifficultyEasyButton">Ľahká</string>
+    <string name="DifficultyImpossibleButton">Nemožná</string>
+    <string name="drawTextView">Remiza</string>
+    <string name="ScoreZero">0</string>
+    <string name="YouTextView">VY</string>
+    <string name="PCTextView">PC</string>
+    <string name="Statistic_button">Štatistika</string>
+    <string name="ImpossibleModeButton">Nemožná</string>
+    <string name="EasyModeButton">Ľahká</string>
+    <string name="SinglePlayerModeText">Prosim zvoľ si náročnosť</string>
+    <string name="resetStatsButton">Resetovať score</string>
+    <string name="tableName">TABULKA</string>
+    <string name="winText">Vyhra</string>
+    <string name="drawText">Remiza</string>
+    <string name="loseText">Prehra</string>
+    <string name="easyText">Lahka</string>
+    <string name="impossibleText">Nemozna</string>
 </resources>

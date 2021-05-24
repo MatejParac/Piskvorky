@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    android:orientation="vertical"
+    android:gravity="center">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="50dp">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff0000">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                android:text="@string/tableName"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/winText"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/drawText"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/loseText"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:padding="7dp"
+                android:text="@string/easyText"/>
+            <TextView
+                android:id="@+id/easyWinTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="7dp" />
+            <TextView
+                android:id="@+id/easyDrawTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="7dp" />
+            <TextView
+                android:id="@+id/easyLoseTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="7dp" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:padding="7dp"
+                android:text="@string/impossibleText"/>
+            <TextView
+                android:id="@+id/impossibleWinTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:padding="7dp" />
+            <TextView
+                android:id="@+id/impossibleDrawTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="7dp" />
+            <TextView
+                android:id="@+id/impossibleLoseTv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:padding="7dp" />
+
+        </TableRow>
+    </TableLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/resetStatsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape"
+            android:padding="5dp"
+            android:text="@string/resetStatsButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
